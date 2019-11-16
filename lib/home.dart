@@ -1,3 +1,4 @@
+import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -5,8 +6,25 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
+const String testDevice = "5ACA2DB358F2857DCCA953A2DD2F1017";
+
 class _HomeState extends State<Home> {
   List<ItemExpansion> _dataExpansion = ItemExpansion().getDataItem();
+  BannerAd _bannerAd;
+  static const MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
+      testDevices: testDevice != null ? <String>[testDevice] : null,
+      nonPersonalizedAds: true,
+      keywords: <String>['Education']);
+
+  BannerAd createBannerAd() {
+    return BannerAd(
+        adUnitId: "ca-app-pub-6902830085354035/6432425065",
+        size: AdSize.smartBanner,
+        targetingInfo: targetingInfo,
+        listener: (MobileAdEvent event) {
+          print("BannerAd $event");
+        });
+  }
 
   Drawer _buildDrawer(context) {
     return Drawer(
@@ -66,7 +84,18 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
+    FirebaseAdMob.instance
+        .initialize(appId: "ca-app-pub-6902830085354035~5633530475");
+    _bannerAd = createBannerAd()
+      ..load()
+      ..show();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _bannerAd.dispose();
+    super.dispose();
   }
 
   @override
@@ -144,13 +173,16 @@ class ItemExpansion {
         headerValue: "Program Dasar",
         route: ["/programDasar", "/variable"]));
     data.add(ItemExpansion(
-        expandTitle: ["Number", "String"],
+        expandTitle: ["Number", "String", "Boolean", "List", "Map"],
         expandSubTitle: [
           "Mengenal tipe data angka",
-          "Mengenal tipe data String"
+          "Mengenal tipe data String",
+          "True atau False",
+          "Kumpulan data di dalam 1 variable",
+          "Key dan Value di Map",
         ],
         headerValue: "Tipe Data",
-        route: ["/number", "/string"]));
+        route: ["/number", "/string", "/boolean", "/list", "/map"]));
     // data.add(ItemExpansion(
     //     expandTitle: ["Program Dasar"], expandSubTitle: ["subtitle"], headerValue: "Program Dasar 3"));
 

@@ -1,8 +1,11 @@
 import 'package:belajar_flutter/dartPad.dart';
 import 'package:belajar_flutter/ui/screens/dart/pengetahuanDasar/ProgramDasar.dart';
 import 'package:belajar_flutter/ui/screens/dart/pengetahuanDasar/Variable.dart';
+import 'package:belajar_flutter/ui/screens/dart/tipeData/Boolean.dart';
+import 'package:belajar_flutter/ui/screens/dart/tipeData/Map.dart';
 import 'package:belajar_flutter/ui/screens/dart/tipeData/Number.dart';
 import 'package:belajar_flutter/ui/screens/dart/tipeData/String.dart';
+import 'package:belajar_flutter/ui/screens/dart/tipeData/List.dart';
 import 'package:flutter/material.dart';
 
 import 'home.dart';
@@ -16,6 +19,9 @@ void main() => runApp(MaterialApp(
     "/variable": (context) => Variable(),
     "/number": (context) => Number(),
     "/string": (context) => StringView(),
+    "/boolean": (context) => BooleanView(),
+    "/list": (context) => ListTipeData(),
+    "/map": (context) => MapView(),
     "/dartPad": (context) => DartPad(),
   },
 ));
