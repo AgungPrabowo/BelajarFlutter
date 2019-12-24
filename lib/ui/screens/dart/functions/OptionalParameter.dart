@@ -9,18 +9,36 @@ class OptionalParameter extends StatefulWidget {
 
 class _OptionalParameterState extends State<OptionalParameter> {
   String var1 = '''
-bool angkaSatu(int angka) {
-  return angka == 1;
-}
-
-print(angkaSatu(1)); 
-// true
+// panggil function hitungLuas.
+hitungLuas(nilaiA: 3, nilaiB: 10);
   ''';
   String var2 = '''
-bool angkaSatu(int angka) => angka == 1;
-
-print(angkaSatu(1)); 
-// true
+void hitungLuas({int nilaiA, int nilaiB}) {...}
+  ''';
+  String var3 = '''
+// parameter nilaiB harus memiliki nilai
+void hitungLuas({int nilaiA, @required int nilaiB}) {...}
+  ''';
+  String var4 = '''
+int berhitung(int nilaiA, int nilaiB, [int nilaiC]) {
+  int hasil;
+  if (nilaiC != null) {
+    hasil = nilaiA + nilaiB + nilaiC;
+  } else {
+    hasil = nilaiA + nilaiB;
+  }
+  return hasil;
+}
+  ''';
+  String var5 = '''
+berhitung(3, 20); // outputnya adalah 23
+  ''';
+  String var6 = '''
+berhitung(3, 20, 2); // outputnya adalah 25
+  ''';
+  String var7 = '''
+void hitungLuas({int nilaiA, int nilaiB = 10}) {...}
+berhitung(3); // outputnya adalah 13
   ''';
   TextStyle txtStyle =
       TextStyle(fontFamily: "My awesome monospace font", fontSize: 14);
@@ -32,13 +50,21 @@ print(angkaSatu(1));
       children: <Widget>[
         Container(
           padding: EdgeInsets.only(bottom: 5),
-          child: Text("Functions",
+          child: Text("Optional Parameter",
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
         ),
         Container(
           padding: EdgeInsets.only(bottom: 5),
           child: Text(
-              "Dart adalah sebuah bahasa pemrograman berorientasi objek, bahkan fungsi sekalipun adalah sebuah objek yang memiliki tipe data Function. Maksutnya adalah function bisa di masukan ke dalam variable atau di lewatkan ke parameter function. dibawah adalah contoh function:"),
+              "Optional parameter adalah parameter yang tidak wajib memiliki nilai, dan parameter ini bisa menampilkan nama parameter tersebut"),
+        ),
+        Container(
+          padding: EdgeInsets.only(bottom: 5),
+          child: Text("Nama Parameter", style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)),
+        ),
+        Container(
+          padding: EdgeInsets.only(bottom: 5),
+          child: Text("Ketika memanggil function, kamu bisa panggila spesifik nama parameter menggunakan namaParam: isiParam. contoh:"),
         ),
         HighlightView(
           var1,
@@ -49,7 +75,7 @@ print(angkaSatu(1));
         ),
         Container(
           padding: EdgeInsets.only(top: 20),
-          child: Text("Jika function hanya membutuhkan satu ekspresi, kamu bisa menggunakan function seperti ini:"),
+          child: Text("Ketika mendefinisikan sebuah function, gunakan {param1, param2, ...} untuk nama parameter yang spesifik:"),
         ),
         HighlightView(
           var2,
@@ -59,22 +85,73 @@ print(angkaSatu(1));
           textStyle: txtStyle,
         ),
         Container(
-          color: Colors.green[50],
-          padding: EdgeInsets.all(5),
-          child: ListTile(
-            title: Text(
-              "Catatan:",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            subtitle: Text(
-                "Syntax => adalah sama dengan syntax { return ekspresi; }."),
-          ),
+          padding: EdgeInsets.only(top: 20),
+          child: Text("Meskipun pemberian nama parameter termasuk jenis opsional atau tidak wajib memiliki nilai, kamu masih tetap bisa memberikan nilai parameter wajib. yaitu menggunakan anotasi @required, sebagai contoh:"),
+        ),
+        HighlightView(
+          var3,
+          language: "dart",
+          theme: githubTheme,
+          padding: EdgeInsets.all(12),
+          textStyle: txtStyle,
+        ),
+        Container(
+          padding: EdgeInsets.only(bottom: 5),
+          child: Text("Posisi Parameter", style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)),
+        ),
+        Container(
+          padding: EdgeInsets.only(top: 20),
+          child: Text("Membungkus parameter function dengan [] (kurung siku), menandakan bahwa opsional parameter tanpa memiliki nama, contoh:"),
+        ),
+        HighlightView(
+          var4,
+          language: "dart",
+          theme: githubTheme,
+          padding: EdgeInsets.all(12),
+          textStyle: txtStyle,
+        ),
+        Container(
+          padding: EdgeInsets.only(top: 20),
+          child: Text("Contoh pemanggilan function tanpa optional parameter:"),
+        ),
+        HighlightView(
+          var5,
+          language: "dart",
+          theme: githubTheme,
+          padding: EdgeInsets.all(12),
+          textStyle: txtStyle,
+        ),
+        Container(
+          padding: EdgeInsets.only(top: 20),
+          child: Text("Contoh pemanggilan function dengan optional parameter:"),
+        ),
+        HighlightView(
+          var6,
+          language: "dart",
+          theme: githubTheme,
+          padding: EdgeInsets.all(12),
+          textStyle: txtStyle,
+        ),
+        Container(
+          padding: EdgeInsets.only(bottom: 5),
+          child: Text("Nilai Default Parameter", style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)),
+        ),
+        Container(
+          padding: EdgeInsets.only(top: 20),
+          child: Text("Kamu bisa menggunakan = (sama dengan) untuk memberi nilai default ke parameter function. contoh:"),
+        ),
+        HighlightView(
+          var7,
+          language: "dart",
+          theme: githubTheme,
+          padding: EdgeInsets.all(12),
+          textStyle: txtStyle,
         ),
       ],
     );
     return Scaffold(
       appBar: AppBar(
-        title: Text("Functions"),
+        title: Text("Optional Parameter"),
       ),
       body: SingleChildScrollView(
         child: Container(
