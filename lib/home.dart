@@ -185,12 +185,14 @@ class ItemExpansion {
         route: ["/number", "/string", "/boolean", "/list", "/map"]));
     data.add(ItemExpansion(expandTitle: [
       "Functions",
-      "Function Optional Parameters"
+      "Function Optional Parameters",
+      "Anonymous Functions",
     ], expandSubTitle: [
       "Contoh function dasar",
-      "Membuat opsional parameter di function"
+      "Membuat opsional parameter di function",
+      "Pengenalan function tanpa nama",
     ], headerValue: "Functions",
-      route: ["/functions", "/optionalParameter"]));
+      route: ["/functions", "/optionalParameter", "/AnonymousFunctions"]));
 
     return data;
   }

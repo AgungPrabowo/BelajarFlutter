@@ -1,4 +1,5 @@
 import 'package:belajar_flutter/dartPad.dart';
+import 'package:belajar_flutter/ui/screens/dart/functions/AnonymousFunctions.dart';
 import 'package:belajar_flutter/ui/screens/dart/functions/Functions.dart';
 import 'package:belajar_flutter/ui/screens/dart/functions/OptionalParameter.dart';
 import 'package:belajar_flutter/ui/screens/dart/pengetahuanDasar/ProgramDasar.dart';
@@ -26,6 +27,7 @@ void main() => runApp(MaterialApp(
     "/map": (context) => MapView(),
     "/functions": (context) => FunctionsView(),
     "/optionalParameter": (context) => OptionalParameter(),
+    "/AnonymousFunctions": (context) => AnonymousFunctions(),
     "/dartPad": (context) => DartPad(),
   },
 ));
