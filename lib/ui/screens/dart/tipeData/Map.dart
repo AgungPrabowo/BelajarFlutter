@@ -8,8 +8,7 @@ class MapView extends StatefulWidget {
 }
 
 class _MapViewState extends State<MapView> {
-  String var1 =
-  '''
+  String var1 = '''
 var hewan = {
   // Key:    Value
   'satu': 'kuda',
@@ -23,8 +22,7 @@ var planet = {
   18: 'venus',
 };
   ''';
-  String var2 = 
-  '''
+  String var2 = '''
 var hewan = Map();
   hewan['satu'] = 'kuda';
   hewan['dua'] = 'kambing';
@@ -35,25 +33,21 @@ var planet = Map();
   planet[10] = 'bumi';
   planet[18] = 'venus';
   ''';
-  String var3 = 
-  '''
+  String var3 = '''
 var hewan = {'satu': 'kuda'};
   print(hewan); // {satu: kuda}
   hewan['dua'] = 'kambing';
   print(hewan); // {satu: kuda, dua: kambing}
   ''';
-  String var4 = 
-  '''
+  String var4 = '''
 var hewan = {'satu': 'kuda', 'dua': 'kambing'};
   print(hewan['satu']); // kuda
   ''';
-  String var5 = 
-  '''
+  String var5 = '''
 var hewan = {'satu': 'kuda', 'dua': 'kambing'};
   print(hewan.length); // 2
   ''';
-  String var6 = 
-  '''
+  String var6 = '''
 final hewanConst = const {
   'satu': 'kuda', 
   'dua': 'kambing',
@@ -61,7 +55,8 @@ final hewanConst = const {
   };
   hewanConst['satu'] = 'gajah'; // error
   ''';
-  TextStyle txtStyle = TextStyle(fontFamily: "My awesome monospace font", fontSize: 14);
+  TextStyle txtStyle =
+      TextStyle(fontFamily: "My awesome monospace font", fontSize: 14);
   @override
   Widget build(BuildContext context) {
     final content = Column(
@@ -75,7 +70,8 @@ final hewanConst = const {
         ),
         Container(
           padding: EdgeInsets.only(bottom: 5),
-          child: Text("Map terdiri dari key dan value, baik key maupun value bisa menggunakan tipe data apapun. Dibawah adalah contoh kode Map:"),
+          child: Text(
+              "Map terdiri dari key dan value, baik key maupun value bisa menggunakan tipe data apapun. Dibawah adalah contoh kode Map:"),
         ),
         HighlightView(
           var1,
@@ -88,8 +84,12 @@ final hewanConst = const {
           color: Colors.green[50],
           padding: EdgeInsets.all(5),
           child: ListTile(
-            title: Text("Catatan:", style: TextStyle(fontWeight: FontWeight.bold),),
-            subtitle: Text("Variable hewan memiliki tipe data Map<String, String> dan variable planet memiliki tipe data Map<int, String>. Jika kamu mencoba untuk memasukan nilai dengan tipe data yang tidak sesuai, akan terjadi error."),
+            title: Text(
+              "Catatan:",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            subtitle: Text(
+                "Variable hewan memiliki tipe data Map<String, String> dan variable planet memiliki tipe data Map<int, String>. Jika kamu mencoba untuk memasukan nilai dengan tipe data yang tidak sesuai, akan terjadi error."),
           ),
         ),
         Container(

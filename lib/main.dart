@@ -1,4 +1,6 @@
 import 'package:belajar_flutter/dartPad.dart';
+import 'package:belajar_flutter/ui/screens/dart/functions/Functions.dart';
+import 'package:belajar_flutter/ui/screens/dart/functions/OptionalParameter.dart';
 import 'package:belajar_flutter/ui/screens/dart/pengetahuanDasar/ProgramDasar.dart';
 import 'package:belajar_flutter/ui/screens/dart/pengetahuanDasar/Variable.dart';
 import 'package:belajar_flutter/ui/screens/dart/tipeData/Boolean.dart';
@@ -22,6 +24,8 @@ void main() => runApp(MaterialApp(
     "/boolean": (context) => BooleanView(),
     "/list": (context) => ListTipeData(),
     "/map": (context) => MapView(),
+    "/functions": (context) => FunctionsView(),
+    "/optionalParameter": (context) => OptionalParameter(),
     "/dartPad": (context) => DartPad(),
   },
 ));

@@ -183,8 +183,14 @@ class ItemExpansion {
         ],
         headerValue: "Tipe Data",
         route: ["/number", "/string", "/boolean", "/list", "/map"]));
-    // data.add(ItemExpansion(
-    //     expandTitle: ["Program Dasar"], expandSubTitle: ["subtitle"], headerValue: "Program Dasar 3"));
+    data.add(ItemExpansion(expandTitle: [
+      "Functions",
+      "Function Optional Parameters"
+    ], expandSubTitle: [
+      "Contoh function dasar",
+      "Membuat opsional parameter di function"
+    ], headerValue: "Functions",
+      route: ["/functions", "/optionalParameter"]));
 
     return data;
   }
